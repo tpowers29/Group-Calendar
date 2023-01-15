@@ -29,12 +29,13 @@ Posts.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-    community: {
-        type: DataTypes.STRING,
+    eventId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
+        foreignKey: true,
       },
     },
-
+// google foreign key assignment in seq model
     {
     sequelize,
     timestamps: false,
