@@ -34,6 +34,13 @@ Posts.init(
         allowNull: false,
         foreignKey: true,
       },
+     user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'user',
+          key: 'id',
+        },
+      }   
     },
 // google foreign key assignment in seq model
     {
