@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-const User = require('./User');
+//const User = require('./User');
 
 class Posts extends Model {
   checkPassword(loginPw) {
@@ -25,10 +25,10 @@ Posts.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-    user: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+    // user: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    //   },
     eventId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -42,7 +42,7 @@ Posts.init(
         },
       }   
     },
-// google foreign key assignment in seq model
+
     {
     sequelize,
     timestamps: false,
