@@ -35,10 +35,10 @@ Event.init(
       type: DataTypes.STRING,
       allowNull:false
     },
-    user_id: {
+    posts_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
+        model: 'posts',
         key: 'id',
       },
     }   

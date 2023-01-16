@@ -3,27 +3,25 @@ const Event = require('./Event');
 const Posts = require('./Posts');
 //const Post = require('./Post');
 
-// Event belongsTo User
-Event.belongsTo(User, {
+Posts.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
-// Categories have many Products
+
 User.hasMany(Posts, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
-Posts.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
+Event.belongsTo(Posts, {
+  foreignKey: 'posts_id',
 });
-// Categories have many Products
-User.hasMany(Event, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
+
+Posts.hasMany(Event, {
+  foreignKey: 'posts_id',
 });
 
 module.exports = { 
     User, 
-    Event };
+    Event,
+    Posts};
