@@ -5,33 +5,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Town-Hall</title>
-  <link rel="stylesheet" href="/public/css/style.css">
   <link rel="stylesheet" href="/public/css/townhall.css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.47.0/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Town-Hall</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+      <nav class="navbar bg-base-100">
+        <div class="flex-1">
+          <a href="/" class="btn btn-ghost normal-case text-xl">Town Hall</a>
+        </div>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal px-1">
+            <li tabindex="0">
+              <a>
+                Settings
+                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+              </a>
+              <ul class="p-2 bg-base-100">
+                <!-- Conditionally render login or logout links -->
+                {{#if logged_in}}
+                <a href="/profile">My Profile</a> |
+                <button class="no-button" id="logout">Log Out</button>
+                {{else}}
+                <a href="/login">Log In</a>
+                {{/if}}
+              </ul>
+        </div>
       </nav>
-    </header>
+
+      <nav>
+
+      </nav>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-    <footer>
-      
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+      <div>
+        <p>Project 2 © 2023 - All rights reserved by Whit, Tyler and Gwen</p>
+      </div>
     </footer>
   </div>
 

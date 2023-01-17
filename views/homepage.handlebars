@@ -1,25 +1,17 @@
-<!-- Loop over each object in the projects array -->
-{{#each projects as |project| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{project.description}}
-    </p>
+<div class="hero min-h-screen" style="background-image: url(https://placeimg.com/1000/800/arch);">
+  <div class="hero-overlay bg-opacity-60"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold">Welcome to Town Hall!</h1>
+      <p class="mb-5">You're one-stop homepage for town events, concerns, improvements, and activities!</p>
+      <button class="btn btn-primary">
+        {{#if logged_in}}
+        <a href="/profile">My Profile</a> |
+        <button class="no-button" id="logout">Log Out</button>
+        {{else}}
+        <a href="/login">Log In</a>
+        {{/if}}
+      </button>
+    </div>
   </div>
 </div>
-{{/each}}
-<h1>Welcome</h1>
