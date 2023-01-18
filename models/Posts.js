@@ -17,6 +17,16 @@ Posts.init(
       primaryKey: true,
       autoIncrement: true,
     },
+
+    content: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    topic: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     comment: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -25,10 +35,7 @@ Posts.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-    // user: {
-    //     type: DataTypes.STRING,
-    //     allowNull: false,
-    //   },
+  
     eventId: {
         type: DataTypes.INTEGER,
         allowNull: false,
