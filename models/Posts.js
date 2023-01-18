@@ -27,20 +27,20 @@ Posts.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    comment: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    reaction: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+    // comment: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
+    // reaction: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    //   },
   
-    eventId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        foreignKey: true,
-      },
+    // eventId: {
+    //     type: DataTypes.INTEGER,
+    //     allowNull: false,
+    //     foreignKey: true,
+    //   },
      user_id: {
         type: DataTypes.INTEGER,
         references: {
