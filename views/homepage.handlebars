@@ -3,13 +3,16 @@
   <div class="hero-content text-center text-neutral-content">
     <div class="max-w-md">
       <h1 class="mb-5 text-5xl font-bold">Welcome to Town Hall!</h1>
-      <p class="mb-5">You're one-stop homepage for town events, concerns, improvements, and activities!</p>
+      <p class="mb-5">A public forum for the people, by the people!</p>
+      <button class="btn btn-primary">
+        <a href="/posts">Explore Town Hall Posts</a>
+      </button>
       <button class="btn btn-primary">
         {{#if logged_in}}
         <a href="/profile">My Profile</a> |
         <button class="no-button" id="logout">Log Out</button>
         {{else}}
-        <a href="/login">Log In</a>
+        <a href="/login">Log In To contribute</a>
         {{/if}}
       </button>
     </div>

@@ -2,7 +2,17 @@ const router = require('express').Router();
 const { Posts } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/posts', withAuth, async (req, res) => {
+router.get('/posts', async (req, res) => {
+  try {
+    const posts = await Posts.findAll()
+
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+}); 
+
+router.post('/createPost', withAuth, async (req, res) => {
   try {
     const newEvent = await Posts.create({
       ...req.body,
@@ -12,22 +22,7 @@ router.post('/posts', withAuth, async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
-}) 
-
-router.get('/posts/:eventId', withAuth, async (req, res) => {
-  try {
-    const eventId = req.params.eventId
-    const newEvent = await Posts.findAll({
-      where: {
-        eventId: eventId 
-      }
-    }) 
-
-    res.status(200).json(newEvent);
-  } catch (error) {
-    res.status(400).json(error);
-  }
-}) 
+});
 
 router.post('/posts/:postId/react', withAuth, async (req, res) => {
   try {
@@ -50,7 +45,7 @@ router.post('/posts/:postId/react', withAuth, async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
-}) 
+});
 
 router.post('/posts/:postId/edit', withAuth, async (req, res) => {
   try {
@@ -71,6 +66,6 @@ router.post('/posts/:postId/edit', withAuth, async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
-}) 
+}); 
 
 module.exports = router;
