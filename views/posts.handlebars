@@ -7,6 +7,7 @@
     {{/if}}
   </button>
 
+  {{#if logged_in}}
   <div class="card w-96 bg-base-100 shadow-xl w-1/2">
     <div class="card-body">
       <h2 class="card-title">
@@ -26,7 +27,8 @@
             placeholder="What's on your mind, {{firstName}}?" />
         </div>
         <div class="form-group">
-          <input class="form-input rounded-md border-2 w-30 mb-5" type="text" id="topic" name="topic" placeholder="topic"/>
+          <input class="form-input rounded-md border-2 w-30 mb-5" type="text" id="topic" name="topic"
+            placeholder="topic" />
         </div>
 
         <div class="form-group ">
@@ -34,8 +36,10 @@
         </div>
       </form>
     </div>
+  </div>
+  {{/if}}
 
-    {{#each posts}}
+  {{#each posts}}
   <div class="card w-96 bg-base-100 shadow-xl w-1/2">
     <div class="card-body">
       <h2 class="card-title">
@@ -45,16 +49,16 @@
           </div>
         </div>
         {{firstName}}
-          <div class="badge badge-secondary">{{topic}}</div>
-        </h2>
+        <div class="badge badge-secondary">{{topic}}</div>
+      </h2>
 
-        <p class="w-full mb-5">{{content}}</p>
-        <div class="card-actions justify-end">
-          <div class="badge badge-outline">{{id}}</div>
-        </div>
+      <p class="w-full mb-5">{{content}}</p>
+      <div class="card-actions justify-end">
+        <div class="badge badge-outline">{{id}}</div>
       </div>
     </div>
-    {{/each}}
+  </div>
+  {{/each}}
 </container>
 
 <script src="/js/posts.js"></script>
