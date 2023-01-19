@@ -1,42 +1,54 @@
-<container class="flex items-center justify-center">
+<container class="w-screen h-screen flex justify-center items-center">
   <button class="btn btn-primary">
     {{#if logged_in}}
-    <a href="/createPosts">Create New Post</a> |
+    <a href="/createPosts">Create New Post</a>
     {{else}}
     <a href="/login">Log In to Create your own post</a>
     {{/if}}
   </button>
 
-  {{#if logged_in}}
-  <div class="row mt-4">
-    <div class="col-md-6">
-      <h3>Create a New create new post:</h3>
+  <div class="card w-96 bg-base-100 shadow-xl w-1/2">
+    <div class="card-body">
+      <h2 class="card-title">
+        <div class="avatar">
+          <div class="w-24 rounded">
+            <img src="https://placeimg.com/192/192/people" />
+          </div>
+        </div>
+        {{firstName}}
+        <div class="badge badge-secondary">New</div>
+      </h2>
 
       <form class="form new-post-form">
         <div class="form-group">
-          <label for="project-name">content:</label>
-          <input class="form-input" type="text" id="content" name="content" />
+          <label for="project-name"></label>
+          <input class="form-input rounded-md border-2 w-full mb-5" type="text" id="content" name="content"
+            placeholder="What's on your mind, {{firstName}}?" />
         </div>
         <div class="form-group">
-          <label for="project-funding">topic ($):</label>
-          <input class="form-input" type="text" id="topic" name="topic" />
+          <input class="form-input rounded-md border-2 w-30 mb-5" type="text" id="topic" name="topic" placeholder="topic"/>
         </div>
 
-        <div class="form-group">
+        <div class="form-group ">
           <button type="submit" class="btn btn-primary">Create</button>
         </div>
       </form>
     </div>
-    {{/if}}
 
     {{#each posts}}
-    <div class="card w-96 bg-base-100 shadow-xl">
-      <div class="card-body">
-        <h2 class="card-title">
-          {{firstName}}
+  <div class="card w-96 bg-base-100 shadow-xl w-1/2">
+    <div class="card-body">
+      <h2 class="card-title">
+        <div class="avatar">
+          <div class="w-24 rounded">
+            <img src="https://placeimg.com/192/192/people" />
+          </div>
+        </div>
+        {{firstName}}
           <div class="badge badge-secondary">{{topic}}</div>
         </h2>
-        <p>{{content}}</p>
+
+        <p class="w-full mb-5">{{content}}</p>
         <div class="card-actions justify-end">
           <div class="badge badge-outline">{{id}}</div>
         </div>
