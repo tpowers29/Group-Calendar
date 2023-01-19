@@ -7,8 +7,8 @@ const seedAll = async () => {
   console.log('\n----- DATABASE SYNCED -----\n');
   await seedPosts();
   console.log('\n----- POSTS SEEDED -----\n');
-  // await seedUser();
-  // console.log('\n----- USERS SEEDED -----\n');
+  await seedUser();
+  console.log('\n----- USERS SEEDED -----\n');
 
   process.exit(0);
 };
