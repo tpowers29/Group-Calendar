@@ -91,4 +91,11 @@ router.get('/posts', async (req, res) => {
   }
 });
 
+router.get('/createPosts', async (req, res) => {
+  try {
+    res.render('posts')
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
