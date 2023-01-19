@@ -53,9 +53,3 @@ Event.init(
 );
 
 module.exports = Event;
-
-
-/// Events ( Id, category, event date, locaton, time, descripton)
-
-// category
-//Event table

@@ -12,20 +12,30 @@
 
 <body>
   <div class="flex-column justify-space-around">
-      <nav class="navbar bg-base-100">
+      <nav class="navbar bg-base-100 h-1/10">
         <div class="flex-1">
           <a href="/" class="btn btn-ghost normal-case text-xl">Town Hall</a>
         </div>
         <div class="flex-none">
           <ul class="menu menu-horizontal px-1">
             <li tabindex="0">
+              {{#if logged_in}}
               <a>
-                Settings
+                Welcome, {{firstName}}! Explore Town Hall
                 <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                 </svg>
               </a>
+                {{else}}
+              <a>
+                Explore Town Hall
+                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+              </a>
+              {{/if}}
               <ul class="p-2 bg-base-100">
+                <a href="/posts">View Posts</a>
                 <!-- Conditionally render login or logout links -->
                 {{#if logged_in}}
                 <a href="/profile">My Profile</a> |
@@ -44,7 +54,7 @@
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content h-1/10">
       <div>
         <p>Project 2 © 2023 - All rights reserved by Whit, Tyler and Gwen</p>
       </div>

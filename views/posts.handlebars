@@ -1,62 +1,46 @@
 <container class="flex items-center justify-center">
-    {{!-- <button class="btn btn-primary">
-        {{#if logged_in}}
-        <a href="/createPosts">Create New Post</a> |
-        {{else}}
-        <a href="/login">Log In to Create your own post</a>
-        {{/if}}
-    </button> --}}
-    <div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New create new post:</h3>
+  <button class="btn btn-primary">
+    {{#if logged_in}}
+    <a href="/createPosts">Create New Post</a> |
+    {{else}}
+    <a href="/login">Log In to Create your own post</a>
+    {{/if}}
+  </button>
 
-    <form class="form new-post-form">
-      <div class="form-group">
-        <label for="project-name">content:</label>
-        <input class="form-input" type="text" id="content" name="content" />
-      </div>
-      <div class="form-group">
-        <label for="project-funding">topic ($):</label>
-        <input class="form-input" type="text" id="topic" name="topic" />
-      </div>
-      
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
-{{!-- 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3> --}}
+  {{#if logged_in}}
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h3>Create a New create new post:</h3>
 
-    {{!-- {{#each projects as |project|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
-      </div>
+      <form class="form new-post-form">
+        <div class="form-group">
+          <label for="project-name">content:</label>
+          <input class="form-input" type="text" id="content" name="content" />
+        </div>
+        <div class="form-group">
+          <label for="project-funding">topic ($):</label>
+          <input class="form-input" type="text" id="topic" name="topic" />
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form>
     </div>
-    {{/each}}
-  </div>
-  {{/if}}
-</div> --}}
+    {{/if}}
 
     {{#each posts}}
     <div class="card w-96 bg-base-100 shadow-xl">
-        <div class="card-body">
-            <h2 class="card-title">
-                Example Post!
-                <div class="badge badge-secondary">{{topic}}</div>
-            </h2>
-            <p>{{content}}</p>
-            <div class="card-actions justify-end">
-                <div class="badge badge-outline">Fashion</div>
-                <div class="badge badge-outline">Products</div>
-            </div>
+      <div class="card-body">
+        <h2 class="card-title">
+          {{firstName}}
+          <div class="badge badge-secondary">{{topic}}</div>
+        </h2>
+        <p>{{content}}</p>
+        <div class="card-actions justify-end">
+          <div class="badge badge-outline">{{id}}</div>
         </div>
+      </div>
     </div>
     {{/each}}
 </container>
