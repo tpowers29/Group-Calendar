@@ -1,25 +1,29 @@
-// const sequelize = require('../config/connection');
-// const { User, Project } = require('../models');
+const { User } = require('../models');
 
-// const userData = require('./userData.json');
-// const projectData = require('./projectData.json');
+const userData = [
+  {
+    "id": 1,
+    "firstName": "Sal",
+    "lastname": "S",
+    "email": "sal@hotmail.com",
+    "password": "password12345"
+  },
+  {
+    "id": 2,
+    "firstName": "Lernantino",
+    "lastName": "L",
+    "email": "lernantino@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "id": 3,
+    "firstName": "Amiko",
+    "lastName": "A",
+    "email": "amiko2k20@aol.com",
+    "password": "password12345"
+  },
+];
 
-// const seedDatabase = async () => {
-//   await sequelize.sync({ force: true });
+const seedUsers = () => User.bulkCreate(userData);
 
-//   const users = await User.bulkCreate(userData, {
-//     individualHooks: true,
-//     returning: true,
-//   });
-
-//   for (const project of projectData) {
-//     await Project.create({
-//       ...project,
-//       user_id: users[Math.floor(Math.random() * users.length)].id,
-//     });
-//   }
-
-//   process.exit(0);
-// };
-
-// seedDatabase();
+module.exports = seedUsers;
