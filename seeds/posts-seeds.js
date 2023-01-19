@@ -21,7 +21,7 @@ const postsData = [
   },
   {
     id: '4',
-    content: 'Differenet content same Topic 03',
+    content: 'Different content same Topic 03',
     topic: 'Test 03',
     // user_id: '4',
   },
