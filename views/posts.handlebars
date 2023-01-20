@@ -1,4 +1,4 @@
-<container class="w-screen h-screen flex justify-center items-center">
+<container class="grid grid-cols-1 gap-4 w-screen h-screen">
   <button class="btn btn-primary">
     {{#if logged_in}}
     <a href="/createPosts">Create New Post</a>
@@ -7,8 +7,7 @@
     {{/if}}
   </button>
 
-  {{#if logged_in}}
-  <div class="card w-96 bg-base-100 shadow-xl w-1/2">
+  <div class="card w-96 bg-base-100 shadow-xl w-4/5">
     <div class="card-body">
       <h2 class="card-title">
         <div class="avatar">
@@ -37,10 +36,9 @@
       </form>
     </div>
   </div>
-  {{/if}}
 
   {{#each posts}}
-  <div class="card w-96 bg-base-100 shadow-xl w-1/2">
+  <div class="card w-96 bg-base-100 shadow-xl w-4/5">
     <div class="card-body">
       <h2 class="card-title">
         <div class="avatar">
