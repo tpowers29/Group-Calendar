@@ -14,13 +14,13 @@ router.get('/', async (req, res) => {
   }
 }); 
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', /*withAuth,*/ async (req, res) => {
   console.log(req.body,"Post create")
   try {
     const newEvent = await Posts.create({
       ...req.body,user_id:req.session.user_id
     }) 
-    console.log("New Post",newEvent)
+    console.log("New Post", newEvent)
     res.status(200).json(newEvent);
   } catch (error) {
     console.log(error)
