@@ -17,6 +17,7 @@
   </div>
 
   {{!-- CREATE POST FORM --}}
+  {{#if logged_in}}
   <div class="card w-screen bg-warning shadow-xl w-4/5">
     <div class="card-body">
       <h2 class="card-title">
@@ -46,6 +47,7 @@
       </form>
     </div>
   </div>
+  {{/if}}
 
   {{!-- SHOW FORMER POSTS IN THE FEED --}}
   {{#each posts}}
