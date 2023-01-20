@@ -28,24 +28,24 @@ router.post('/', /*withAuth,*/ async (req, res) => {
   }
 });
 
-router.post('/posts/:postId/react', withAuth, async (req, res) => {
+router.post('/:postId/react', withAuth, async (req, res) => {
+  console.log(req.body,req.params)
   try {
     const postId = req.params.postId
-    const getPostById = await Posts.findOne({
+    const getPostById = await Posts.update(req.body,{
       where:  {
         id: postId
       }
     })
-
-    const newReaction = getPostById.reaction + req.body.reaction
-
-    const postEdit = getPostById.set({
-      reaction: newReaction,
-    });
+   console.log("New Reaction", getPostById)
+    // const newReaction = getPostById.reaction 
+    // const postEdit = getPostById.set({
+    //   reaction: newReaction,
+    // });
     
-    await postEdit.save();
+    // await postEdit.save();
     
-    res.status(200).json(newEvent);
+    res.status(200).json(getPostById);
   } catch (error) {
     res.status(400).json(error);
   }
