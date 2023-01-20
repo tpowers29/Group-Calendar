@@ -1,14 +1,23 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{firstName}}!</h2>
+<div class="hero w-screen h-screen" style="background-image: url(https://placeimg.com/1000/800/arch);">
+  <div class="hero-overlay bg-opacity-60"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold">{{firstName}} {{lastName}}</h1>
+      <p class="mb-5">You're now logged in to Town Hall! <br> Interact with posts in the Newsfeed, or create your own!
+        <br> We want to hear from you.
+      </p>
+      <button class="btn btn-warning">
+        <a href="/posts">Explore Newsfeed</a>
+      </button>
+      <button class="btn btn-warning">
+        {{#if logged_in}}
+        <a href="/logout">Log Out</a>
+        {{else}}
+        <class="logout" a href="/login">Log In To contribute</a>
+        {{/if}}
+      </button>
+    </div>
   </div>
 </div>
-  <button class="btn btn-primary">
-        {{#if logged_in}}
-        <a href="/api/posts/">Create New Post</a>
-        {{else}}
-        <a href="/login">Log In to Create your own post</a>
-        {{/if}}
-    </button>
 
 <script src="./js/profile.js"></script>
