@@ -1,12 +1,22 @@
+{{!-- ENTIRE CONTAINER AND CREATE POST BUTTON --}}
 <container class="grid grid-cols-1 gap-4 w-screen h-screen">
-  <button class="btn btn-primary">
-    {{#if logged_in}}
-    <a href="/createPosts">Create New Post</a>
-    {{else}}
-    <a href="/login">Log In to Create your own post</a>
-    {{/if}}
-  </button>
+  <div class="hero w-screen" style="background-image: url(https://placeimg.com/1000/800/arch);">
+    <div class="hero-overlay bg-opacity-60"></div>
+    <div class="hero-content text-center text-neutral-content">
+      <div class="max-w-md">
+        <p class="mb-5">The posts below are created by users in your area! Browse freely or log in to interact.</p>
+        <button class="btn btn-accent">
+          {{#if logged_in}}
+          <a href="/createPosts">Create New Post</a>
+          {{else}}
+          <a href="/login">Log In to Create your own post</a>
+          {{/if}}
+        </button>
+      </div>
+    </div>
+  </div>
 
+  {{!-- CREATE POST FORM --}}
   <div class="card w-96 bg-base-100 shadow-xl w-4/5">
     <div class="card-body">
       <h2 class="card-title">
@@ -16,7 +26,7 @@
           </div>
         </div>
         {{firstName}}
-        <div class="badge badge-secondary">New</div>
+        <div class="badge badge-accent">New</div>
       </h2>
 
       <form class="form new-post-form">
@@ -37,6 +47,7 @@
     </div>
   </div>
 
+  {{!-- SHOW FORMER POSTS IN THE FEED --}}
   {{#each posts}}
   <div class="card w-96 bg-base-100 shadow-xl w-4/5">
     <div class="card-body">
@@ -47,7 +58,7 @@
           </div>
         </div>
         {{firstName}}
-        <div class="badge badge-secondary">{{topic}}</div>
+        <div class="badge badge-neutral">{{topic}}</div>
       </h2>
 
       <p class="w-full mb-5">{{content}}</p>
@@ -59,4 +70,5 @@
   {{/each}}
 </container>
 
+{{!-- JAVASCRIPT LINK --}}
 <script src="/js/posts.js"></script>
