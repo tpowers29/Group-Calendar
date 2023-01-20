@@ -7,7 +7,7 @@
         <p class="mb-5">The posts below are created by users in your area! <br> Browse freely or log in to interact.</p>
         <button class="btn btn-warning">
           {{#if logged_in}}
-          <a href="/createPosts">Create New Post</a>
+          <a href="/posts">Create New Post</a>
           {{else}}
           <a href="/login">Log In to Create your own post</a>
           {{/if}}
@@ -17,6 +17,7 @@
   </div>
 
   {{!-- CREATE POST FORM --}}
+
   {{#if logged_in}}
   <div class="card w-screen bg-warning shadow-xl w-4/5">
     <div class="card-body">
