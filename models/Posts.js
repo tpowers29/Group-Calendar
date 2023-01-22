@@ -27,21 +27,14 @@ Posts.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    comment: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+    
     reaction: {
         type: DataTypes.STRING,
         allowNull: true,
         defaultValue:0
       },
   
-    eventId: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        foreignKey: true,
-      },
+
      user_id: {
         type: DataTypes.INTEGER,
         references: {
