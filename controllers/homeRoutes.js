@@ -4,29 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage')
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/project/:id', async (req, res) => {
-  try {
-    const projectData = await Project.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const project = projectData.get({ plain: true });
-
-    res.render('project', {
-      ...project,
-      logged_in: req.session.logged_in
-    });
+    res.render('homepage');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -37,20 +15,16 @@ router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     console.log(req.session.user_id);
-    const userData = await User.findByPk(req.session.user_id)
-    //  {
-    //   attributes: { exclude: ['password'] },
-    //   include: [{ model: Post }],
-    // });
+    const userData = await User.findByPk(req.session.user_id);
 
     const user = userData.get({ plain: true });
 
     res.render('profile', {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
-    console.log("profile",err)
+    console.log('profile', err);
     res.status(500).json(err);
   }
 });
@@ -76,15 +50,15 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/posts', async (req, res) => {
-  console.log("POSTS",req.session)
+  console.log('POSTS', req.session);
   try {
     const postData = await Posts.findAll({
       include: [
         {
           model: User,
-          where:{
-            id:req.session.user_id
-          }
+          where: {
+            id: req.session.user_id,
+          },
           // attributes: ['firstName'],
         },
       ],
@@ -92,22 +66,15 @@ router.get('/posts', async (req, res) => {
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
-    console.log(posts)
-    res.render('posts', { 
-      posts, 
-      logged_in: req.session.logged_in 
+    console.log(posts);
+    res.render('posts', {
+      posts,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get('/createPosts', async (req, res) => {
-  try {
-    res.render('posts')
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 module.exports = router;
