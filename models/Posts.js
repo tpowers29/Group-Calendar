@@ -27,24 +27,21 @@ Posts.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    
     reaction: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        defaultValue:0
-      },
-  
-
-     user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id',
-        },
-      }   
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: 0,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
+  },
 
-    {
+  {
     sequelize,
     timestamps: false,
     freezeTableName: true,
