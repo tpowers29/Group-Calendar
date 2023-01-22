@@ -60,14 +60,15 @@
             <img src="https://placeimg.com/192/192/people" />
           </div>
         </div>
-        {{firstName}}
-        <div class="badge badge-warning">{{topic}}</div>
+        {{this.firstName}}
+        <div class="badge badge-warning">{{this.topic}}</div>
       </h2>
-      <p class="w-full mb-5">{{content}}</p>
+      <p class="w-full mb-5">{{this.content}}</p>
       <div class="card-actions justify-end">
-        <div class="badge badge-outline">{{id}}</div>
+        <button class="badge badge-outline like-btn" data-value={{this.reaction}} id= "btn-{{this.id}}"> Like: {{this.reaction}}</button>
       </div>
     </div>
+    <button></button>
   </div>
   {{/each}}
 </container>

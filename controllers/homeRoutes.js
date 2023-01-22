@@ -65,24 +65,40 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/logout', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_out) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('logout');
+});
+
 router.get('/posts', async (req, res) => {
+  console.log("POSTS",req.session)
   try {
     const postData = await Posts.findAll({
       include: [
         {
           model: User,
-          attributes: ['first_name'],
+          where:{
+            id:req.session.user_id
+          }
+          // attributes: ['firstName'],
         },
       ],
     });
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
+    console.log(posts)
     res.render('posts', { 
       posts, 
-      //logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
