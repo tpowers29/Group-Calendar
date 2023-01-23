@@ -1,36 +1,32 @@
+## TOWN HALL
 ## Description
+This application is an interactive and user friendly online Town Hall where the user can create posts and react to posts created by other users. 
 
-This website displays an interactive and user friendly platform from which the user create, comment and react to events related to the topic they chose. Their post is created for differnt users to interact with. It will then tell the user the event, time, date and all the information needed in that category. 
+## Technologies Used
+We used Node.js and Express.js to create a RESTSful API. 
+We used Handlebars.js as the templating engine, and we used MySQL and the Sequelize ORM for the database.  For CSS/styling we used Tailwind/daisyUI, and we used placeimg.com for the random image generator.
+We used Insomnia to test routes and Workbench to test models, relationships, and queries. We used Github to host our repository and Heroku to deploy our solution.
 
-## Installation
- 
-Clone repository
-Node.js to run the application
-Run npm install to load the required npm packages
-
-
-## Flaws/Comments
-
-Learing curve of connecting the front end to the back end. Inigrating handlebars templeting engine for views with the database models via the controllers. We overcame this through utlizling testing tools.
-
-
-## APIs Used
-placeimg.com (for all the random images)
-
-## Credits - Technology used
-
-### Tailwind CSS Framework
-### daisyUI
-### Mysql Workbench
-### Insomnia
-
+## Links
+Github repository:
+https://github.com/tpowers29/Town-Hall
+Deployed to heroku:
+https://intense-taiga-33129.herokuapp.com/login
 
 ## Collaborators
+Gwen Paradis -- Design,styling,Responsiveness, Seeds, Handlebars,
+Routes,Authentication,Code Clean Up
+Whit Spaulding -- Database Design,Models,Relationships,Handlebars, Seeds,Routes
+Tyler Powers -- Repo owner, Api Controllers, Models, Authentication, Heroku
 
-### Gwen Paradis -- Design, Styling, Responsivness, Seeding
-### Whit Spaulding -- DB, Handlebars, Seeding, Models
-### Tyler Powers -- Repo owner, Api Controllers, Models, Authentication, Heroku
+## License:
+Our github repository is published under the MIT license and we can be reached via email at: 
+gwendelynparadis2@gmail.com
+tylerpowerst@aol.com
+whitspa64@gmail.com 
 
-## License 
+A screen shot of the deployed application is below:
 
-
+<img src="townhallbackground.png"
+     alt="Town Hall landing page with login and back ground metropolitan image"
+     style="float: left; margin-right: 10px;" />
